@@ -24,9 +24,9 @@ namespace SportsStore.Data.Migrations
 
             var products = new List<Product>
             {
-                new Product {Name = "Football", Price = 25},
-                new Product {Name = "Surf board", Price = 179},
-                new Product {Name = "Running shoes", Price = 95}
+                new Product {Name = "Football-Shirt", Price = 25, Description = "Some cool football is here",Categoty = "FootBall"},
+                new Product {Name = "Surf board", Price = 179,Description = "Cool swimming",Categoty = "Summer"},
+                new Product {Name = "Running shoes", Price = 95,Description = "Sport is healthy", Categoty = "Sport"}
             };
 
             products.ForEach(p => context.Products.AddOrUpdate(p));

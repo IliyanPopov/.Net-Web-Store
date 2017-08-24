@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Data;
     using Domain.Contracts;
     using Domain.Entities;
     using Moq;
@@ -30,17 +31,17 @@
 
         private void AddBindings()
         {
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            //Mock<IProductRepository> mock = new Mock<IProductRepository>();
 
-            mock.Setup(m => m.Products).Returns(new List<IProduct>
-            {
-                new Product {Name = "Football", Price = 25},
-                new Product { Name = "Surf board", Price = 179 },
-                new Product { Name = "Running shoes", Price = 95 }
-            });
+            //mock.Setup(m => m.Products).Returns(new List<IProduct>
+            //{
+            //    new Product {Name = "Football", Price = 25},
+            //    new Product { Name = "Surf board", Price = 179 },
+            //    new Product { Name = "Running shoes", Price = 95 }
+            //});
 
-            this._kernel.Bind<IProductRepository>().ToConstant(mock.Object);
-            this._kernel.Bind<IProduct>().To<Product>();
+            //this._kernel.Bind<IProductRepository>().ToConstant(mock.Object);
+            this._kernel.Bind<IProductRepository>().To<EFProductRepository>();
         }
     }
 }

@@ -51,11 +51,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IProductRepository.cs" />
+    <Compile Include="EFProductRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SportsShopBindingModule.cs" />
     <Compile Include="SportsShopContext.cs" />
-    <Compile Include="SportsShopInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportsStore.Domain\SportsStore.Models.csproj">
