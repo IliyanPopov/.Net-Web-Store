@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Data;
-    using Domain.Contracts;
-    using Domain.Entities;
+    using Data.Contracts;
+    using Models.Entities;
     using Moq;
     using Ninject;
 

@@ -1,9 +1,8 @@
 ﻿namespace SportsStore.Data
 {
     using System.Data.Entity;
-    using Domain.Contracts;
-    using Domain.Entities;
     using Migrations;
+    using Models.Entities;
 
     public class SportsShopContext : DbContext
     {

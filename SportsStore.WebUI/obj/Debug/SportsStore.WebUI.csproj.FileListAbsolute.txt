@@ -54,7 +54,6 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Microsof
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Ninject.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Common.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Mvc.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Domain.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.Web.Helpers.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.Web.Mvc.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.Web.Razor.dll
@@ -62,7 +61,6 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.W
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.Web.Webpages.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\System.Web.Webpages.Razor.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\WebActivatorEx.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Domain.pdb
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Ninject.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\Ninject.Web.Common.xml
@@ -85,7 +83,8 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsSt
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\EntityFramework.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Data.pdb
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Data.dll.config
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Domain.dll.config
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\EntityFramework.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\EntityFramework.SqlServer.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\EntityFramework.SqlServer.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Models.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\SportsStore.Models.pdb

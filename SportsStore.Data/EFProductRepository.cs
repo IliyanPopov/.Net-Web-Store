@@ -1,7 +1,8 @@
 ﻿namespace SportsStore.Data
 {
     using System.Collections.Generic;
-    using Domain.Contracts;
+    using Contracts;
+    using Models.Contracts;
 
     public class EFProductRepository : IProductRepository
     {

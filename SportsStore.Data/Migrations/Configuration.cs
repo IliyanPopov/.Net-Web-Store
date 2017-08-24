@@ -5,7 +5,7 @@ namespace SportsStore.Data.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using Domain.Entities;
+    using Models.Entities;
 
     internal sealed class Configuration : DbMigrationsConfiguration<SportsStore.Data.SportsShopContext>
     {

@@ -1,6 +1,7 @@
-﻿namespace SportsStore.Domain.Contracts
+﻿namespace SportsStore.Data.Contracts
 {
     using System.Collections.Generic;
+    using Models.Contracts;
 
     public interface IProductRepository
     {
