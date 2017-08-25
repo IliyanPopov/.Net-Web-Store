@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="TestNavController.cs" />
     <Compile Include="TestProductController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

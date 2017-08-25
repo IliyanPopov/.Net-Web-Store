@@ -8,6 +8,7 @@ namespace SportsStore.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
             this.ContextKey = "SportsStore.Data.SportsShopContext";
         }
 
