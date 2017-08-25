@@ -10,6 +10,6 @@
 
         decimal Price { get; }
 
-        string Categoty { get; }
+        string Category { get; }
     }
 }

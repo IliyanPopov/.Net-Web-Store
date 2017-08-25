@@ -9,5 +9,7 @@
         public IEnumerable<IProduct> Products { get; set; }
 
         public PagingInfo PagingInfo { get; set; }
+
+        public string CurrentCategory { get; set; }
     }
 }
