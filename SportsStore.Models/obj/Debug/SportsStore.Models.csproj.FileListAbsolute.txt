@@ -3,3 +3,4 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\S
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\SportsStore.Models.pdb
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.pdb
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.csprojResolveAssemblyReference.cache

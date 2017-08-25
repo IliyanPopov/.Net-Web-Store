@@ -3,7 +3,7 @@
     using System;
     using System.Text;
     using System.Web.Mvc;
-    using ViewModels;
+    using Models;
 
     public static class PagingHelpers
     {

@@ -11,6 +11,7 @@
     using NUnit.Framework;
     using WebUI.Controllers;
     using WebUI.HtmlHelpers;
+    using WebUI.Models;
     using WebUI.ViewModels;
 
     [TestFixture]
@@ -30,15 +31,16 @@
                 new Product {ProductId = 5, Name = "P5"},
             });
             ProductController controller = new ProductController(mock.Object);
-            controller.PageSize = 2;
+            controller.PageSize = 3;
             // Act
             // list with int parameter referes to the page number 
-            IEnumerable<IProduct> result = (IEnumerable<IProduct>)controller.List(3).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
 
             // Assert
-            IProduct[] prodArray = result.ToArray();
-            Assert.IsTrue(prodArray.Length == 1);
-            Assert.AreEqual(prodArray[0].Name, "P5");
+            IProduct[] prodArray = result.Products.ToArray();
+            Assert.IsTrue(prodArray.Length == 2);
+            Assert.AreEqual(prodArray[0].Name, "P4");
+            Assert.AreEqual(prodArray[1].Name, "P5");
         }
 
         [Test]
@@ -64,6 +66,33 @@
                             + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
                             + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
                 result.ToString());
+        }
+
+        [Test]
+        public void PaginationIsCorrectlySentToTheViewModel()
+        {
+            // Arrange
+            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product {ProductId = 1, Name = "P1"},
+                new Product {ProductId = 2, Name = "P2"},
+                new Product {ProductId = 3, Name = "P3"},
+                new Product {ProductId = 4, Name = "P4"},
+                new Product {ProductId = 5, Name = "P5"},
+            });
+
+            ProductController controller = new ProductController(mock.Object);
+            controller.PageSize = 3;
+            // Act
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+
+            // Assert
+            PagingInfo pageInfo = result.PagingInfo;
+            Assert.AreEqual(pageInfo.CurrentPage, 2);
+            Assert.AreEqual(pageInfo.ItemsPerPage, 3);
+            Assert.AreEqual(pageInfo.TotalItems, 5);
+            Assert.AreEqual(pageInfo.TotalPages, 2);
         }
     }
 }

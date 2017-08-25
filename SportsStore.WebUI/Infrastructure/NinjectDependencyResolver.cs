@@ -5,7 +5,7 @@
     using System.Web.Mvc;
     using Data;
     using Data.Contracts;
-    using Models.Entities;
+    using SportsStore.Models.Entities;
     using Moq;
     using Ninject;
 
