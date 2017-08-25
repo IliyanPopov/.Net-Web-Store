@@ -1,13 +1,17 @@
 ﻿namespace SportsStore.Tests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web.Mvc;
     using Data.Contracts;
     using Models.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;
     using WebUI.Controllers;
+    using WebUI.HtmlHelpers;
+    using WebUI.ViewModels;
 
     [TestFixture]
     public class TestProductController
@@ -35,6 +39,31 @@
             IProduct[] prodArray = result.ToArray();
             Assert.IsTrue(prodArray.Length == 1);
             Assert.AreEqual(prodArray[0].Name, "P5");
+        }
+
+        [Test]
+        public void HtmlHelperPagingLinksAreGeneratedCorrectly()
+        {
+            // Arrange
+            // needed to apply the extention method
+            HtmlHelper helper = null;
+            PagingInfo pagingInfo = new PagingInfo
+            {
+                CurrentPage = 2,
+                TotalItems = 28,
+                ItemsPerPage = 10
+            };
+
+            Func<int, string> pageUrlDelegae = i => "Page" + i;
+
+            // Act
+            MvcHtmlString result = helper.PageLinks(pagingInfo, pageUrlDelegae);
+
+            // Assert
+            Assert.AreEqual(@"<a class=""btn btn-default"" href=""Page1"">1</a>"
+                            + @"<a class=""btn btn-default btn-primary selected"" href=""Page2"">2</a>"
+                            + @"<a class=""btn btn-default"" href=""Page3"">3</a>",
+                result.ToString());
         }
     }
 }
