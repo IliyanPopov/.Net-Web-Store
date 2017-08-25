@@ -8,7 +8,7 @@
 
     public class ProductController : Controller
     {
-        private const int PageSize = 2;
+        public int PageSize = 2;
 
         private readonly IProductRepository _repository;
 
@@ -21,8 +21,8 @@
         {
             // return View(this._repository.Products);
             return View(this._repository.Products
-                .OrderBy(p =>p.ProductId)
-                .Skip((page-1)*PageSize)
+                .OrderBy(p => p.ProductId)
+                .Skip((page - 1) * PageSize)
                 .Take(PageSize));
         }
     }
