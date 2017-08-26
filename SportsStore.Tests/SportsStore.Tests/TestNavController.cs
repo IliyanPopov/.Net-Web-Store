@@ -50,18 +50,16 @@
                 new Category { Name = "Oranges" }
             }.AsQueryable());
 
-
-            // Arrange - create the controller
             NavController controller = new NavController(mock.Object);
-            // Arrange - define the category to selected
+
+            // define the category to select
             string categoryToSelect = "Apples";
-            // Action
+
+            // Act
             CategoriesListViewModel result = (CategoriesListViewModel)controller.Menu(categoryToSelect).Model;
+
             // Assert
             Assert.AreEqual(categoryToSelect, result.CurrentCategory);
         }
     }
 }
-
-//IProduct[] result = ((ProductsListViewModel)controller.List(cat2.Name, 1).Model)
-//.Products.ToArray();

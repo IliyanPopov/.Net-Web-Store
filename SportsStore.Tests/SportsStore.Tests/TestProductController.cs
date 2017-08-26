@@ -1,6 +1,7 @@
 ﻿namespace SportsStore.Tests
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
@@ -16,23 +17,35 @@
     [TestFixture]
     public class TestProductController
     {
-        [Test]
-        public void Can_Filter_Products()
+        [SetUp]
+        public void CreateListWithProductsAndCategories()
         {
-            // Arrange
-            Category cat1 = new Category { Name = "Cat1" };
-            Category cat2 = new Category { Name = "Cat2" };
-            Category cat3 = new Category { Name = "Cat3" };
-            // mock the repository
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
-            mock.Setup(m => m.All).Returns(new[]
+            Category cat1 = new Category {Name = "Cat1"};
+            Category cat2 = new Category {Name = "Cat2"};
+            Category cat3 = new Category {Name = "Cat3"};
+
+            this._products = new List<Product>
             {
                 new Product {ProductId = 1, Name = "P1", Category = cat1},
                 new Product {ProductId = 2, Name = "P2", Category = cat2},
                 new Product {ProductId = 3, Name = "P3", Category = cat1},
                 new Product {ProductId = 4, Name = "P4", Category = cat2},
                 new Product {ProductId = 5, Name = "P5", Category = cat3}
-            }.AsQueryable);
+            };
+        }
+
+        private IList<Product> _products;
+
+        [Test]
+        public void Can_Filter_Products()
+        {
+            // Arrange
+            Category cat1 = new Category {Name = "Cat1"};
+            Category cat2 = new Category {Name = "Cat2"};
+            Category cat3 = new Category {Name = "Cat3"};
+            // mock the repository
+            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            mock.Setup(m => m.All).Returns(this._products.AsQueryable);
 
             // create a controller and make the page size 3 items
 
@@ -40,7 +53,7 @@
             controller.PageSize = 3;
 
             // Action     
-            IProduct[] result = ((ProductsListViewModel)controller.List(cat2.Name, 1).Model)
+            IProduct[] result = ((ProductsListViewModel) controller.List(cat2.Name, 1).Model)
                 .Products.ToArray();
 
             // Assert
@@ -75,6 +88,31 @@
         }
 
         [Test]
+        public void PageCountForSpecificCategoriesAreCorrect()
+        {
+            // Arrange
+            // - create the mock repository
+            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            mock.Setup(m => m.All).Returns(this._products.AsQueryable);
+
+            // Arrange - create a controller and make the page size 3 items
+            ProductController controller = new ProductController(mock.Object);
+            controller.PageSize = 3;
+
+            // Action - test the product counts for different categories
+            int res1 = ((ProductsListViewModel) controller.List("Cat1").Model).PagingInfo.TotalItems;
+            int res2 = ((ProductsListViewModel) controller.List("Cat2").Model).PagingInfo.TotalItems;
+            int res3 = ((ProductsListViewModel) controller.List("Cat3").Model).PagingInfo.TotalItems;
+            int resAll = ((ProductsListViewModel) controller.List(null).Model).PagingInfo.TotalItems;
+
+            // Assert
+            Assert.AreEqual(res1, 2);
+            Assert.AreEqual(res2, 2);
+            Assert.AreEqual(res3, 1);
+            Assert.AreEqual(resAll, 5);
+        }
+
+        [Test]
         public void PaginationIsCorrectlySentToTheViewModel()
         {
             // Arrange
@@ -91,7 +129,7 @@
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
             // Act
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
+            ProductsListViewModel result = (ProductsListViewModel) controller.List(null, 2).Model;
 
             // Assert
             PagingInfo pageInfo = result.PagingInfo;
@@ -118,7 +156,7 @@
             controller.PageSize = 3;
             // Act
             // list with int parameter referes to the page number 
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
+            ProductsListViewModel result = (ProductsListViewModel) controller.List(null, 2).Model;
 
             // Assert
             IProduct[] prodArray = result.Products.ToArray();

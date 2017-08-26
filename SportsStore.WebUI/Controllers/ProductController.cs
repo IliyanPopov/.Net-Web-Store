@@ -35,7 +35,7 @@
                 {
                     CurrentPage = page,
                     ItemsPerPage = this.PageSize,
-                    TotalItems = this._productGenericRepository.All.Count()
+                    TotalItems = category == null ? this._productGenericRepository.All.Count() : this._productGenericRepository.All.Count(p =>p.Category.Name == category)
                 },
                 CurrentCategory = category
             };
