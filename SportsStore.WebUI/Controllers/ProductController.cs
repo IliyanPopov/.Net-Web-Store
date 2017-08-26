@@ -1,9 +1,11 @@
 ﻿namespace SportsStore.WebUI.Controllers
 {
+    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
     using Models;
+    using Ninject.Infrastructure.Language;
     using SportsStore.Models.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
@@ -23,10 +25,12 @@
             ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = this._productGenericRepository.All
-                .Where(p => category == null || p.Category == category)
+                .Include(p => p.Category)
+                .Where(p => category == null || p.Category.Name == category)
                     .OrderBy(p => p.ProductId)
                     .Skip((page - 1) * this.PageSize)
-                    .Take(this.PageSize),
+                    .Take(this.PageSize)
+                    .ToEnumerable(),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,

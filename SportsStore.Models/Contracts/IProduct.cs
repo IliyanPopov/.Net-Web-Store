@@ -1,5 +1,7 @@
 ﻿namespace SportsStore.Models.Contracts
 {
+    using Entities;
+
     public interface IProduct
     {
         int ProductId { get; }
@@ -10,6 +12,6 @@
 
         decimal Price { get; }
 
-        string Category { get; }
+        Category Category { get; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿namespace SportsStore.Data.Contracts
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Models.Contracts;
 
     public interface IGenericRepository<T>
     {
-        IEnumerable<T> All { get; }
+        IQueryable<T> All { get; }
 
         //T GetById(object id);
 

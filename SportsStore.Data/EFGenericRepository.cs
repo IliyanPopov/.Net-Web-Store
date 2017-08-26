@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Contracts;
 
     public class EfProductGenericRepository<T> : IGenericRepository<T> where T : class
@@ -20,6 +21,6 @@
         }
 
 
-        public virtual IEnumerable<T> All => this._context.Set<T>();
+        public virtual IQueryable<T> All => this._context.Set<T>();
     }
 }

@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using Data.Contracts;
-    using Models.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;
@@ -12,26 +11,24 @@
     [TestFixture]
     internal class TestNavController
     {
-
         [Test]
         public void CategoriesAreCreated()
         {
             // Arrange
 
-            Mock<IGenericRepository<IProduct>> mock = new Mock<IGenericRepository<IProduct>>();
+            Mock<IGenericRepository<Category>> mock = new Mock<IGenericRepository<Category>>();
 
-            mock.Setup(m => m.All).Returns(new Product[]
+            mock.Setup(m => m.All).Returns(new[]
             {
-                new Product {ProductId = 1, Name = "P1", Category = "Apples"},
-                new Product {ProductId = 2, Name = "P2", Category = "Apples"},
-                new Product {ProductId = 3, Name = "P3", Category = "Plums"},
-                new Product {ProductId = 4, Name = "P4", Category = "Oranges"},
-            });
+                new Category {Name = "Apples"},
+                new Category {Name = "Plums"},
+                new Category {Name = "Oranges"}
+            }.AsQueryable);
 
             NavController controller = new NavController(mock.Object);
 
             // Act
-            string[] result = ((IEnumerable<string>)controller.Menu().Model).ToArray();
+            string[] result = ((IEnumerable<string>) controller.Menu().Model).ToArray();
 
             // Assert
             Assert.AreEqual(result.Length, 3);
