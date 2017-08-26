@@ -50,8 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IProductRepository.cs" />
-    <Compile Include="EFProductRepository.cs" />
+    <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="EFGenericRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportsShopContext.cs" />

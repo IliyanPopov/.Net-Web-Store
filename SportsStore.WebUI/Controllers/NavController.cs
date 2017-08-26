@@ -4,19 +4,21 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
+    using SportsStore.Models.Contracts;
+    using SportsStore.Models.Entities;
 
     public class NavController : Controller
     {
-        private readonly IProductRepository _repository;
+        private readonly IGenericRepository<Product> _productGenericRepository;
 
-        public NavController(IProductRepository repository)
+        public NavController(IGenericRepository<Product> productGenericRepository)
         {
-            this._repository = repository;
+            this._productGenericRepository = productGenericRepository;
         }
 
         public PartialViewResult Menu()
         {
-            IEnumerable<string> categories = this._repository.Products.Select(p => p.Category)
+            IEnumerable<string> categories = this._productGenericRepository.All.Select(p => p.Category)
                 .Distinct()
                 .OrderBy(c => c);
 
@@ -24,3 +26,4 @@
         }
     }
 }
+// TODO refactor categories to be different entity with relation to product

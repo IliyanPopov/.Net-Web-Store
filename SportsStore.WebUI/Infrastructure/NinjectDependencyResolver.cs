@@ -2,12 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Web.Mvc;
     using Data;
     using Data.Contracts;
     using SportsStore.Models.Entities;
     using Moq;
     using Ninject;
+    using Ninject.Web.Common;
+    using SportsStore.Models.Contracts;
 
     public class NinjectDependencyResolver : IDependencyResolver
     {
@@ -41,7 +44,9 @@
             //});
 
             //this._kernel.Bind<IProductRepository>().ToConstant(mock.Object);
-            this._kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            this._kernel.Bind<IProduct>().To<Product>();
+            this._kernel.Bind<DbContext>().To<SportsShopContext>().InRequestScope();
+            this._kernel.Bind(typeof(IGenericRepository<>)).To(typeof(EfProductGenericRepository<>));
         }
     }
 }

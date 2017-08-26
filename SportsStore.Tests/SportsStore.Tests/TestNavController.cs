@@ -18,9 +18,9 @@
         {
             // Arrange
 
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
+            Mock<IGenericRepository<IProduct>> mock = new Mock<IGenericRepository<IProduct>>();
 
-            mock.Setup(m => m.Products).Returns(new Product[]
+            mock.Setup(m => m.All).Returns(new Product[]
             {
                 new Product {ProductId = 1, Name = "P1", Category = "Apples"},
                 new Product {ProductId = 2, Name = "P2", Category = "Apples"},

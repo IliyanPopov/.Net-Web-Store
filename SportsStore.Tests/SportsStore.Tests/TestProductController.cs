@@ -21,8 +21,8 @@
         public void PaginationShowCorrectNumberOfProductsPerPage()
         {
             // Arrange
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new IProduct[]
+            Mock<IGenericRepository<IProduct>> mock = new Mock<IGenericRepository<IProduct>>();
+            mock.Setup(m => m.All).Returns(new IProduct[]
             {
                 new Product {ProductId = 1, Name = "P1"},
                 new Product {ProductId = 2, Name = "P2"},
@@ -72,8 +72,8 @@
         public void PaginationIsCorrectlySentToTheViewModel()
         {
             // Arrange
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[]
+            Mock<IGenericRepository<IProduct>> mock = new Mock<IGenericRepository<IProduct>>();
+            mock.Setup(m => m.All).Returns(new Product[]
             {
                 new Product {ProductId = 1, Name = "P1"},
                 new Product {ProductId = 2, Name = "P2"},
@@ -101,8 +101,8 @@
             // Arrange
 
             // mock the repository
-            Mock<IProductRepository> mock = new Mock<IProductRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[]
+            Mock<IGenericRepository<IProduct>> mock = new Mock<IGenericRepository<IProduct>>();
+            mock.Setup(m => m.All).Returns(new Product[]
             {
                 new Product {ProductId = 1, Name = "P1", Category = "Cat1"},
                 new Product {ProductId = 2, Name = "P2", Category = "Cat2"},
