@@ -7,6 +7,7 @@
     using Moq;
     using NUnit.Framework;
     using WebUI.Controllers;
+    using WebUI.ViewModels;
 
     [TestFixture]
     internal class TestNavController
@@ -28,7 +29,7 @@
             NavController controller = new NavController(mock.Object);
 
             // Act
-            string[] result = ((IEnumerable<string>) controller.Menu().Model).ToArray();
+            string[] result = ((IEnumerable<string>)controller.Menu().Model).ToArray();
 
             // Assert
             Assert.AreEqual(result.Length, 3);
@@ -36,5 +37,31 @@
             Assert.AreEqual(result[1], "Oranges");
             Assert.AreEqual(result[2], "Plums");
         }
+
+        [Test]
+        public void CurrentCategoryIsColoredDifferently()
+        {
+            // Arrange
+            // - create the mock repository
+            Mock<IGenericRepository<Category>> mock = new Mock<IGenericRepository<Category>>();
+
+            mock.Setup(m => m.All).Returns(new Category[] {
+                new Category { Name = "Apples" },
+                new Category { Name = "Oranges" }
+            }.AsQueryable());
+
+
+            // Arrange - create the controller
+            NavController controller = new NavController(mock.Object);
+            // Arrange - define the category to selected
+            string categoryToSelect = "Apples";
+            // Action
+            CategoriesListViewModel result = (CategoriesListViewModel)controller.Menu(categoryToSelect).Model;
+            // Assert
+            Assert.AreEqual(categoryToSelect, result.CurrentCategory);
+        }
     }
 }
+
+//IProduct[] result = ((ProductsListViewModel)controller.List(cat2.Name, 1).Model)
+//.Products.ToArray();
