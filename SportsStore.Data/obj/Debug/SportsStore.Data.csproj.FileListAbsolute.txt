@@ -1,15 +1,2 @@
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\SportsStore.Data.dll.config
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\SportsStore.Data.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\SportsStore.Data.pdb
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\EntityFramework.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\EntityFramework.SqlServer.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\EntityFramework.xml
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\EntityFramework.SqlServer.xml
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\obj\Debug\SportsStore.Data.csprojResolveAssemblyReference.cache
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\obj\Debug\SportsStore.Data.csproj.CoreCompileInputs.cache
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\obj\Debug\SportsStore.Data.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\obj\Debug\SportsStore.Data.pdb
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\Ninject.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\Ninject.xml
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\SportsStore.Models.dll
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Data\bin\Debug\SportsStore.Models.pdb
