@@ -1,0 +1,11 @@
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\SportsStore.Models.dll.config
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\SportsStore.Models.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\SportsStore.Models.pdb
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\EntityFramework.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\EntityFramework.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.csprojResolveAssemblyReference.cache
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.csproj.CoreCompileInputs.cache
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.pdb
