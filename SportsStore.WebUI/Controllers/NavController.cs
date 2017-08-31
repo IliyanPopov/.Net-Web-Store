@@ -33,4 +33,3 @@
         }
     }
 }
-// TODO refactor categories to be different entity with relation to product
