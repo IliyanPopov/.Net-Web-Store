@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Models.Contracts;
+    using Data.Contracts;
 
     public interface IGenericRepository<T>
     {

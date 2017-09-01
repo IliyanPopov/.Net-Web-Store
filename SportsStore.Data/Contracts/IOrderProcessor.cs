@@ -1,6 +1,6 @@
-﻿namespace SportsStore.Models.Contracts
+﻿namespace SportsStore.Data.Contracts
 {
-    using Entities;
+    using Models.Entities;
 
     public interface IOrderProcessor
     {

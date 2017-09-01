@@ -2,6 +2,8 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\nunit.framework.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\System.Web.Mvc.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\System.Web.WebPages.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.csprojResolveAssemblyReference.cache
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.csproj.CoreCompileInputs.cache
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\csc.exe
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\csc.exe.config
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\csc.rsp
@@ -86,7 +88,5 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\EntityFramework.xml
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.csprojResolveAssemblyReference.cache
-E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.csproj.CoreCompileInputs.cache
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\obj\Debug\SportsStore.Tests.pdb

@@ -1,4 +1,4 @@
-﻿namespace SportsStore.Models
+﻿namespace SportsStore.Data
 {
     public class EmailSettings
     {

@@ -7,12 +7,10 @@
     using System.Web.Mvc;
     using Data;
     using Data.Contracts;
-    using SportsStore.Models.Entities;
-    using Moq;
     using Ninject;
     using Ninject.Web.Common;
-    using SportsStore.Models;
     using SportsStore.Models.Contracts;
+    using SportsStore.Models.Entities;
 
     public class NinjectDependencyResolver : IDependencyResolver
     {

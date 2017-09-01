@@ -3,7 +3,6 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
-    using SportsStore.Models.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
 
@@ -54,15 +53,19 @@
             return PartialView(cart);
         }
 
-        [HttpPost]
-        public ViewResult Checkout(Cart cart, ShippingDetails
-            shippingDetails)
+        public ViewResult Checkout()
         {
-            if (cart.Lines.Count() == 0)
+            return View(new ShippingDetails());
+        }
+
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (!cart.Lines.Any())
             {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
+                this.ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 this._orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();

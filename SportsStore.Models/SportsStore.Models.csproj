@@ -49,10 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICategory.cs" />
-    <Compile Include="Contracts\IOrderProcessor.cs" />
     <Compile Include="Contracts\IProduct.cs" />
-    <Compile Include="EmailOrderProcessor.cs" />
-    <Compile Include="EmailSettings.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Category.cs" />

@@ -2,7 +2,7 @@
 {
     using System.Data.Entity;
     using Migrations;
-    using Models.Contracts;
+    using Data.Contracts;
     using Models.Entities;
 
     public class SportsShopContext : DbContext

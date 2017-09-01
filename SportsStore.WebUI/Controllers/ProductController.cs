@@ -6,7 +6,7 @@
     using Data.Contracts;
     using Models;
     using Ninject.Infrastructure.Language;
-    using SportsStore.Models.Contracts;
+    using SportsStore.Data.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
 

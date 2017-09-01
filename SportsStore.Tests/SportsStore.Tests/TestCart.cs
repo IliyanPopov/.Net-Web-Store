@@ -3,7 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
-    using Models.Contracts;
+    using Data.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;

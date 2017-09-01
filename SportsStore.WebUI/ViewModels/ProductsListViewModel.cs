@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Models;
+    using SportsStore.Data.Contracts;
     using SportsStore.Models.Contracts;
 
     public class ProductsListViewModel

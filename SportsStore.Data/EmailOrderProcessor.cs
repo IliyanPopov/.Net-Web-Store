@@ -1,10 +1,11 @@
-﻿namespace SportsStore.Models
+﻿namespace SportsStore.Data
 {
     using System.Net;
     using System.Net.Mail;
     using System.Text;
-    using Contracts;
-    using Entities;
+    using Data;
+    using Models.Entities;
+    using IOrderProcessor = Contracts.IOrderProcessor;
 
     public class EmailOrderProcessor : IOrderProcessor
     {
@@ -70,7 +71,10 @@
                 {
                     mailMessage.BodyEncoding = Encoding.ASCII;
                 }
-                smtpClient.Send(mailMessage);
+                else
+                {
+                    smtpClient.Send(mailMessage);
+                }
             }
         }
     }
