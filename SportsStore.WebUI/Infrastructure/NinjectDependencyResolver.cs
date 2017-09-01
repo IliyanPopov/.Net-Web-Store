@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Web.Mvc;
     using Data;
@@ -10,6 +11,7 @@
     using Moq;
     using Ninject;
     using Ninject.Web.Common;
+    using SportsStore.Models;
     using SportsStore.Models.Contracts;
 
     public class NinjectDependencyResolver : IDependencyResolver
@@ -47,6 +49,14 @@
             this._kernel.Bind<IProduct>().To<Product>();
             this._kernel.Bind<DbContext>().To<SportsShopContext>().InRequestScope();
             this._kernel.Bind(typeof(IGenericRepository<>)).To(typeof(EfProductGenericRepository<>));
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            this._kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
     }
 }

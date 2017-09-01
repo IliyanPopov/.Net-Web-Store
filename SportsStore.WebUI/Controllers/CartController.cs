@@ -3,16 +3,19 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
+    using SportsStore.Models.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
 
     public class CartController : Controller
     {
         private readonly IGenericRepository<Product> _productRepository;
+        private IOrderProcessor _orderProcessor;
 
-        public CartController(IGenericRepository<Product> repo)
+        public CartController(IGenericRepository<Product> repo, IOrderProcessor orderProcessor)
         {
             this._productRepository = repo;
+            this._orderProcessor = orderProcessor;
         }
 
         public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
@@ -51,9 +54,24 @@
             return PartialView(cart);
         }
 
-        public ViewResult Checkout()
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails
+            shippingDetails)
         {
-            return View(new ShippingDetails());
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry, your cart is empty!");
+            }
+            if (ModelState.IsValid)
+            {
+                this._orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
         }
     }
 }
