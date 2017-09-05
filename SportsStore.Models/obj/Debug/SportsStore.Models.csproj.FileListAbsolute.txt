@@ -9,3 +9,16 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\S
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.pdb
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\obj\Debug\SportsStore.Models.csprojResolveAssemblyReference.cache
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Helpers.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Mvc.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Razor.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.Razor.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Helpers.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Mvc.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.Razor.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Models\bin\Debug\System.Web.WebPages.Razor.xml
