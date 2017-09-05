@@ -10,9 +10,9 @@
 
     public class NavController : Controller
     {
-        private readonly IGenericRepository<Category> _categoryRepository;
+        private readonly IRepository<Category> _categoryRepository;
 
-        public NavController(IGenericRepository<Category> categoryRepository)
+        public NavController(IRepository<Category> categoryRepository)
         {
             this._categoryRepository = categoryRepository;
         }

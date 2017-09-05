@@ -9,7 +9,6 @@
     using Data.Contracts;
     using Ninject;
     using Ninject.Web.Common;
-    using SportsStore.Models.Contracts;
     using SportsStore.Models.Entities;
 
     public class NinjectDependencyResolver : IDependencyResolver
@@ -34,19 +33,8 @@
 
         private void AddBindings()
         {
-            //Mock<IProductRepository> mock = new Mock<IProductRepository>();
-
-            //mock.Setup(m => m.Products).Returns(new List<IProduct>
-            //{
-            //    new Product {Name = "Football", Price = 25},
-            //    new Product { Name = "Surf board", Price = 179 },
-            //    new Product { Name = "Running shoes", Price = 95 }
-            //});
-
-            //this._kernel.Bind<IProductRepository>().ToConstant(mock.Object);
-            this._kernel.Bind<IProduct>().To<Product>();
             this._kernel.Bind<DbContext>().To<SportsShopContext>().InRequestScope();
-            this._kernel.Bind(typeof(IGenericRepository<>)).To(typeof(EfProductGenericRepository<>));
+            this._kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
 
             EmailSettings emailSettings = new EmailSettings
             {

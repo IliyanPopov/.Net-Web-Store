@@ -17,7 +17,7 @@
         {
             // Arrange
 
-            Mock<IGenericRepository<Category>> mock = new Mock<IGenericRepository<Category>>();
+            Mock<IRepository<Category>> mock = new Mock<IRepository<Category>>();
 
             mock.Setup(m => m.All).Returns(new[]
             {
@@ -43,7 +43,7 @@
         {
             // Arrange
             // - create the mock repository
-            Mock<IGenericRepository<Category>> mock = new Mock<IGenericRepository<Category>>();
+            Mock<IRepository<Category>> mock = new Mock<IRepository<Category>>();
 
             mock.Setup(m => m.All).Returns(new Category[] {
                 new Category { Name = "Apples" },

@@ -69,8 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\ICategory.cs" />
-    <Compile Include="Contracts\IProduct.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Category.cs" />
@@ -79,8 +77,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,10 +1,9 @@
 ﻿namespace SportsStore.Models.Entities
 {
-    using Contracts;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class Product : IProduct
+    public class Product 
     {
         [HiddenInput(DisplayValue = false)]
         public int ProductId { get; set; }

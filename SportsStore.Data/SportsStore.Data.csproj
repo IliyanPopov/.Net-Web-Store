@@ -50,9 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IOrderProcessor.cs" />
-    <Compile Include="EFGenericRepository.cs" />
+    <Compile Include="EfGenericRepository.cs" />
     <Compile Include="EmailOrderProcessor.cs" />
     <Compile Include="EmailSettings.cs" />
     <Compile Include="Migrations\Configuration.cs" />

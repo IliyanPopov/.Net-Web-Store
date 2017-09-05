@@ -6,25 +6,24 @@
     using Data.Contracts;
     using Models;
     using Ninject.Infrastructure.Language;
-    using SportsStore.Data.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
 
     public class ProductController : Controller
     {
-        private readonly IGenericRepository<Product> _productGenericRepository;
+        private readonly IRepository<Product> _productRepository;
         public int PageSize = 2;
 
-        public ProductController(IGenericRepository<Product> productProductGenericRepository)
+        public ProductController(IRepository<Product> productProductRepository)
         {
-            this._productGenericRepository = productProductGenericRepository;
+            this._productRepository = productProductRepository;
         }
 
         public ViewResult List(string category, int page = 1)
         {
             ProductsListViewModel model = new ProductsListViewModel
             {
-                Products = this._productGenericRepository.All
+                Products = this._productRepository.All
                 .Include(p => p.Category)
                 .Where(p => category == null || p.Category.Name == category)
                     .OrderBy(p => p.ProductId)
@@ -35,7 +34,7 @@
                 {
                     CurrentPage = page,
                     ItemsPerPage = this.PageSize,
-                    TotalItems = category == null ? this._productGenericRepository.All.Count() : this._productGenericRepository.All.Count(p =>p.Category.Name == category)
+                    TotalItems = category == null ? this._productRepository.All.Count() : this._productRepository.All.Count(p =>p.Category.Name == category)
                 },
                 CurrentCategory = category
             };

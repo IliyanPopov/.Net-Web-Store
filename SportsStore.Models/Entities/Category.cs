@@ -1,9 +1,8 @@
 ﻿namespace SportsStore.Models.Entities
 {
     using System.Collections.Generic;
-    using Contracts;
 
-    public class Category : ICategory
+    public class Category 
     {
         public Category()
         {

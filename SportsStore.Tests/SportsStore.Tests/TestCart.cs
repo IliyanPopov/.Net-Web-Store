@@ -3,7 +3,6 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
-    using Data.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;
@@ -36,7 +35,7 @@
         public void AddingProductsToCart()
         {
             // Arrange - create the mock repository
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(new[]
             {
                 new Product {ProductId = 1, Name = "P1", Category = new Category {Name = "Apples"}}
@@ -58,7 +57,7 @@
         public void AddingProductToCartGoesToCartScreen()
         {
             // Arrange - create the mock repository
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(new[]
             {
                 new Product {ProductId = 1, Name = "P1", Category = new Category {Name = "Apples"}}

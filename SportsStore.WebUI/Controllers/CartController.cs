@@ -8,10 +8,10 @@
 
     public class CartController : Controller
     {
-        private readonly IGenericRepository<Product> _productRepository;
+        private readonly IRepository<Product> _productRepository;
         private IOrderProcessor _orderProcessor;
 
-        public CartController(IGenericRepository<Product> repo, IOrderProcessor orderProcessor)
+        public CartController(IRepository<Product> repo, IOrderProcessor orderProcessor)
         {
             this._productRepository = repo;
             this._orderProcessor = orderProcessor;

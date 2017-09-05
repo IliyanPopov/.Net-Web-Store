@@ -5,8 +5,6 @@
     using System.Linq;
     using System.Web.Mvc;
     using Data.Contracts;
-    using Data.Contracts;
-    using Models.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;
@@ -45,7 +43,7 @@
             Category cat2 = new Category {Name = "Cat2"};
             Category cat3 = new Category {Name = "Cat3"};
             // mock the repository
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(this._products.AsQueryable);
 
             // create a controller and make the page size 3 items
@@ -54,7 +52,7 @@
             controller.PageSize = 3;
 
             // Action     
-            IProduct[] result = ((ProductsListViewModel) controller.List(cat2.Name, 1).Model)
+            Product[] result = ((ProductsListViewModel) controller.List(cat2.Name, 1).Model)
                 .Products.ToArray();
 
             // Assert
@@ -93,7 +91,7 @@
         {
             // Arrange
             // - create the mock repository
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(this._products.AsQueryable);
 
             // Arrange - create a controller and make the page size 3 items
@@ -117,7 +115,7 @@
         public void PaginationIsCorrectlySentToTheViewModel()
         {
             // Arrange
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(new[]
             {
                 new Product {ProductId = 1, Name = "P1"},
@@ -144,7 +142,7 @@
         public void PaginationShowCorrectNumberOfProductsPerPage()
         {
             // Arrange
-            Mock<IGenericRepository<Product>> mock = new Mock<IGenericRepository<Product>>();
+            Mock<IRepository<Product>> mock = new Mock<IRepository<Product>>();
             mock.Setup(m => m.All).Returns(new[]
             {
                 new Product {ProductId = 1, Name = "P1"},
@@ -160,7 +158,7 @@
             ProductsListViewModel result = (ProductsListViewModel) controller.List(null, 2).Model;
 
             // Assert
-            IProduct[] prodArray = result.Products.ToArray();
+            Product[] prodArray = result.Products.ToArray();
             Assert.IsTrue(prodArray.Length == 2);
             Assert.AreEqual(prodArray[0].Name, "P4");
             Assert.AreEqual(prodArray[1].Name, "P5");
