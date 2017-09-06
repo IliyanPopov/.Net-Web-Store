@@ -1,5 +1,6 @@
 ﻿namespace SportsStore.WebUI.Controllers
 {
+    using System;
     using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
@@ -29,6 +30,11 @@
             Product product = this._productsRepository.All
                 .Include(p => p.Category)
                 .FirstOrDefault(p => p.ProductId == productId);
+
+            if (product == null)
+            {
+                throw new ArgumentNullException("Product is not existring!");
+            }
 
             ProductEditViewModel viewmodel = new ProductEditViewModel
             {
