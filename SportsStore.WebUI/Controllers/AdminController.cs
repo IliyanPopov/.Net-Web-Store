@@ -9,6 +9,7 @@
     using SportsStore.Models.Entities;
     using ViewModels;
 
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IRepository<Category> _categoriesRepository;

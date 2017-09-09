@@ -77,6 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSecurityTests.cs" />
     <Compile Include="TestAdminController.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="TestCart.cs" />

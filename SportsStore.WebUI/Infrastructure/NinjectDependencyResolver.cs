@@ -5,6 +5,8 @@
     using System.Configuration;
     using System.Data.Entity;
     using System.Web.Mvc;
+    using Concrete;
+    using Contracts;
     using Data;
     using Data.Contracts;
     using Ninject;
@@ -43,6 +45,8 @@
 
             this._kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            this._kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }
