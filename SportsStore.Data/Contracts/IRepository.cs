@@ -10,10 +10,10 @@
 
         void Add(T entity);
 
+        int Delete(T entity);
+
         //T GetById(object id);
 
         //void Update(T entity);
-
-        //int SaveChanges();
     }
 }

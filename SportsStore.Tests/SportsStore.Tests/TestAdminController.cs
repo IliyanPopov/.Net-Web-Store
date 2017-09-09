@@ -12,7 +12,7 @@
     using WebUI.ViewModels;
 
     [TestFixture]
-    public class AdminTests
+    public class TestAdminController
     {
         [Test]
         public void Can_Save_Valid_Changes()
@@ -298,6 +298,62 @@
 
             //  Assert.Throws<ArgumentNullException>(() => (Product)target.Edit(4).ViewData.Model);
             Assert.Throws<ArgumentNullException>(() => target.Edit(4));
+        }
+
+        [Test]
+        public void Can_Delete_Valid_Products()
+        {
+            // Arrange - create mock repository
+            Mock<IRepository<Product>> mockProducts = new Mock<IRepository<Product>>();
+            Mock<IRepository<Category>> mockCategories = new Mock<IRepository<Category>>();
+
+
+            mockCategories.Setup(m => m.All).Returns(new[]
+            {
+                new Category {CategoryId = 1, Name = "Winter"},
+                new Category {CategoryId = 2, Name = "Summer"},
+                new Category {CategoryId = 3, Name = "Sprint"}
+            }.AsQueryable);
+
+            mockProducts.Setup(m => m.All).Returns(new[]
+            {
+                new Product
+                {
+                    Name = "Test1",
+                    ProductId = 1,
+                    Description = "TestDescription1",
+                    Price = 101,
+                    Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 1),
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Name = "Test2",
+                    ProductId = 2,
+                    Description = "TestDescription2",
+                    Price = 102,
+                    Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 2),
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Name = "Test3",
+                    ProductId = 3,
+                    Description = "TestDescription3",
+                    Price = 103,
+                    Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 3),
+                    CategoryId = 3
+                }
+            }.AsQueryable());
+
+            // Arrange - create the controller
+            AdminController target = new AdminController(mockProducts.Object, mockCategories.Object);
+            // Act - delete the product with id 2
+            var productToDelete = mockProducts.Object.All.FirstOrDefault(p =>p.ProductId == 2);
+            target.Delete(productToDelete.ProductId);
+            // Assert - ensure that the repository delete method was
+            // called with the correct Product
+            mockProducts.Verify(m => m.Delete(productToDelete));
         }
     }
 }

@@ -44,6 +44,12 @@
             }
         }
 
+        public int Delete(T entity)
+        {
+            this.DbSet.Remove(entity);
+            return this.Context.SaveChanges();
+        }
+
 
         public virtual void Update(T entity)
         {

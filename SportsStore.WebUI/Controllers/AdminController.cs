@@ -90,5 +90,18 @@
             this._productsRepository.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult Delete(int productId)
+        {
+            Product productToDelete = this._productsRepository.All.FirstOrDefault(p => p.ProductId == productId);
+            if (productToDelete != null)
+            {
+                this._productsRepository.Delete(productToDelete);
+                this._productsRepository.SaveChanges();
+                TempData["message"] = $"{productToDelete.Name} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
