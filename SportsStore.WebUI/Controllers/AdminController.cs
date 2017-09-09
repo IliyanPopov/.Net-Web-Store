@@ -4,6 +4,7 @@
     using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
+    using AutoMapper;
     using Data.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
@@ -71,6 +72,28 @@
 
             this._productsRepository.SaveChanges();
             this.TempData["message"] = $"{product.Name} has been saved";
+            return RedirectToAction("Index");
+        }
+
+        public ViewResult Create()
+        {
+            var model = new ProductEditViewModel();
+            model.Categories = this._categoriesRepository.All.OrderBy(c => c.Name).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Create(ProductEditViewModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                // there is something wrong with the data values
+                return View(model);
+            }
+
+            var product = Mapper.Map<Product>(model);
+            this._productsRepository.Add(product);
+            this._productsRepository.SaveChanges();
             return RedirectToAction("Index");
         }
     }

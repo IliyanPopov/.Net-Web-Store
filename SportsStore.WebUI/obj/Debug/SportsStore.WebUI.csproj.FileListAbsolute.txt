@@ -91,3 +91,5 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\obj\Debug\Sp
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\obj\Debug\SportsStore.WebUI.csproj.CoreCompileInputs.cache
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\obj\Debug\SportsStore.WebUI.dll
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\obj\Debug\SportsStore.WebUI.pdb
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\AutoMapper.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.WebUI\bin\AutoMapper.xml

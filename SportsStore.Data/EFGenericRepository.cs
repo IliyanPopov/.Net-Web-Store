@@ -30,6 +30,20 @@
             return this.Context.SaveChanges();
         }
 
+        public void Add(T entity)
+        {
+            var entry = this.Context.Entry(entity);
+
+            if (entry.State != EntityState.Detached)
+            {
+                entry.State = EntityState.Added;
+            }
+            else
+            {
+                this.DbSet.Add(entity);
+            }
+        }
+
 
         public virtual void Update(T entity)
         {

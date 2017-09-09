@@ -90,3 +90,5 @@ E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\vbc.rsp
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\VBCSCompiler.exe
 E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\AutoMapper.dll
+E:\KnowledgeMaterials\ApressSportShop\SportsStore\SportsStore.Tests\SportsStore.Tests\bin\Debug\AutoMapper.xml

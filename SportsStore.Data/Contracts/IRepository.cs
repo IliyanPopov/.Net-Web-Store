@@ -8,7 +8,7 @@
 
         int SaveChanges();
 
-        //void Add(T entity);
+        void Add(T entity);
 
         //T GetById(object id);
 

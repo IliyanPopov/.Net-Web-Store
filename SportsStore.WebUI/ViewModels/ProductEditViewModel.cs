@@ -21,7 +21,7 @@
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal Price { get; set; }
 
-
         public ICollection<Category> Categories { get; set; }
+
     }
 }
