@@ -14,10 +14,7 @@
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Product, ProductEditViewModel>();
-            });
 
-            Mapper.Initialize(cfg =>
-            {
                 cfg.CreateMap<ProductEditViewModel, Product>();
             });
         }

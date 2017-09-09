@@ -37,15 +37,9 @@
                 throw new ArgumentNullException("Product is not existring!");
             }
 
-            ProductEditViewModel viewmodel = new ProductEditViewModel
-            {
-                ProductId = product.ProductId,
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-                CategoryId = product.CategoryId,
-                Categories = this._categoriesRepository.All.OrderBy(c => c.Name).ToList()
-            };
+            var viewmodel = Mapper.Map<ProductEditViewModel>(product);
+            viewmodel.Categories = this._categoriesRepository.All.OrderBy(c => c.Name).ToList();
+
 
             return View(viewmodel);
         }

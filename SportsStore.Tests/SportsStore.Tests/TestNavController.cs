@@ -29,13 +29,12 @@
             NavController controller = new NavController(mock.Object);
 
             // Act
-            string[] result = ((IEnumerable<string>)controller.Menu().Model).ToArray();
-
+            CategoriesListViewModel result = (CategoriesListViewModel)controller.Menu().Model;
             // Assert
-            Assert.AreEqual(result.Length, 3);
-            Assert.AreEqual(result[0], "Apples");
-            Assert.AreEqual(result[1], "Oranges");
-            Assert.AreEqual(result[2], "Plums");
+            Assert.AreEqual(result.Categories.Count(), 3);
+            Assert.IsTrue(result.Categories.Any(c =>c == "Apples"));
+            Assert.IsTrue(result.Categories.Any(c => c == "Plums"));
+            Assert.IsTrue(result.Categories.Any(c => c == "Oranges"));
         }
 
         [Test]
