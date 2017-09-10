@@ -1,11 +1,10 @@
 ﻿namespace SportsStore.WebUI
 {
-    using System.Reflection;
+    using System.IO;
+    using System.Web;
     using AutoMapper;
-    using Data.Contracts;
     using SportsStore.Models.Entities;
     using ViewModels;
-
 
     public static class AutoMapperConfig
     {
@@ -13,10 +12,29 @@
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Product, ProductEditViewModel>();
+                cfg.CreateMap<Product, ProductEditViewModel>()
+                .ForMember(vm => vm.ImageData, opt => opt.MapFrom(src => new byte[0]));
 
-                cfg.CreateMap<ProductEditViewModel, Product>();
+
+                cfg.CreateMap<ProductEditViewModel, Product>()
+                   .ForMember(vm => vm.ImageData, opt => opt.MapFrom(src => new byte[0]));
+
+                cfg.AllowNullCollections = true;
             });
         }
+
+        //private static byte[] GetBytesFromFile(HttpPostedFileBase file)
+        //{
+        //    if (file == null)
+        //    {
+        //        return new byte[0];
+        //    }
+
+        //    MemoryStream stream = new MemoryStream();
+        //    file.InputStream.CopyTo(stream);
+        //    byte[] pictureInData = stream.ToArray();
+
+        //    return pictureInData;
+        //}
     }
 }

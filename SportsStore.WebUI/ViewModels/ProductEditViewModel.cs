@@ -23,5 +23,9 @@
 
         public ICollection<Category> Categories { get; set; }
 
+        public byte[] ImageData { get; set; }
+
+        [MaxLength(50)]
+        public string ImageMimeType { get; set; }
     }
 }

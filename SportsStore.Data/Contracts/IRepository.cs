@@ -14,6 +14,6 @@
 
         //T GetById(object id);
 
-        //void Update(T entity);
+        void Update(T entity);
     }
 }

@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace SportsStore.WebUI
+﻿namespace SportsStore.WebUI
 {
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
     using Infrastructure.Binders;
     using SportsStore.Models.Entities;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
+            AutoMapperConfig.RegisterAllMappings();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
-            AutoMapperConfig.RegisterAllMappings();
         }
     }
 }

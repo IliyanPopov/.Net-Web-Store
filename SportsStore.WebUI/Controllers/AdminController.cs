@@ -3,6 +3,7 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
     using AutoMapper;
     using Data.Contracts;
@@ -46,30 +47,43 @@
         }
 
         [HttpPost]
-        public ActionResult Edit(int productId, ProductEditViewModel viewModel)
+        public ActionResult Edit(ProductEditViewModel viewModel, HttpPostedFileBase image = null)
         {
-            if (!this.ModelState.IsValid)
+            if (this.ModelState.IsValid)
+            {
+                var product = this._productsRepository.All.FirstOrDefault(p => p.ProductId == viewModel.ProductId);
+
+                if (image != null)
+                {
+                    viewModel.ImageMimeType = image.ContentType;
+                    viewModel.ImageData = new byte[image.ContentLength];
+                    image.InputStream.Read(viewModel.ImageData, 0, image.ContentLength);
+               
+                    if (product == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    product.Name = viewModel.Name;
+                    product.Description = viewModel.Description;
+                    product.Price = viewModel.Price;
+                    product.CategoryId = viewModel.CategoryId;
+                    product.ImageMimeType = viewModel.ImageMimeType;
+                    product.ImageData = viewModel.ImageData;
+                }
+
+                this._productsRepository.Update(product);
+                this._productsRepository.SaveChanges();
+                this.TempData["message"] = $"{viewModel.Name} has been saved";
+
+                return RedirectToAction("Index");
+            }
+            else
             {
                 // there is something wrong with the data values
                 return View(viewModel);
             }
-            var product = this._productsRepository.All.FirstOrDefault(p => p.ProductId == productId);
-
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-
-            product.Name = viewModel.Name;
-            product.Description = viewModel.Description;
-            product.Price = viewModel.Price;
-            product.CategoryId = viewModel.CategoryId;
-
-            this._productsRepository.SaveChanges();
-            this.TempData["message"] = $"{product.Name} has been saved";
-            return RedirectToAction("Index");
         }
-
         public ViewResult Create()
         {
             var model = new ProductEditViewModel();

@@ -4,16 +4,34 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using AutoMapper;
     using Data.Contracts;
     using Models.Entities;
     using Moq;
     using NUnit.Framework;
+    using WebUI;
     using WebUI.Controllers;
     using WebUI.ViewModels;
 
     [TestFixture]
     public class TestAdminController
     {
+
+        [SetUp]
+        public void ConfigureMappings()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Product, ProductEditViewModel>()
+                    .ForMember(vm => vm.ImageData, opt => opt.MapFrom(src => new byte[0]));
+
+
+                cfg.CreateMap<ProductEditViewModel, Product>()
+                    .ForMember(vm => vm.ImageData, opt => opt.MapFrom(src => new byte[0]));
+
+                cfg.AllowNullCollections = true;
+            });
+        }
         [Test]
         public void Can_Save_Valid_Changes()
         {
@@ -60,10 +78,11 @@
                 }
             }.AsQueryable());
             AdminController target = new AdminController(mockProducts.Object, mockCategories.Object);
-            ProductEditViewModel product = new ProductEditViewModel { Name = "Test", ProductId = 1 };
+            ProductEditViewModel viewModel = new ProductEditViewModel { Name = "Test", ProductId = 1 };
 
             // Act - try to save the product
-            ActionResult result = target.Edit(product.ProductId, product);
+
+            ActionResult result = target.Edit(viewModel);
 
             // Assert - check that the repository was called
             mockProducts.Verify(m => m.SaveChanges());
@@ -132,7 +151,7 @@
         }
 
         [Test]
-        public void ExistringProductsIsEditable()
+        public void ExistingProductsIsEditable()
         {
             // Arrange - create mock repository
             Mock<IRepository<Product>> mockProducts = new Mock<IRepository<Product>>();
@@ -155,7 +174,9 @@
                     Description = "TestDescription1",
                     Price = 101,
                     Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 1),
-                    CategoryId = 1
+                    CategoryId = 1,
+                    ImageData = new byte[] { },
+                    ImageMimeType = "image/png2"
                 },
                 new Product
                 {
@@ -164,7 +185,9 @@
                     Description = "TestDescription2",
                     Price = 102,
                     Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 2),
-                    CategoryId = 2
+                    CategoryId = 2,
+                    ImageData = new byte[] { },
+                    ImageMimeType = "image/png2"
                 },
                 new Product
                 {
@@ -173,7 +196,9 @@
                     Description = "TestDescription3",
                     Price = 103,
                     Category = mockCategories.Object.All.FirstOrDefault(c => c.CategoryId == 3),
-                    CategoryId = 3
+                    CategoryId = 3,
+                    ImageData = new byte[] { },
+                    ImageMimeType = "image/png2"
                 }
             }.AsQueryable());
             AdminController target = new AdminController(mockProducts.Object, mockCategories.Object);
@@ -349,7 +374,7 @@
             // Arrange - create the controller
             AdminController target = new AdminController(mockProducts.Object, mockCategories.Object);
             // Act - delete the product with id 2
-            var productToDelete = mockProducts.Object.All.FirstOrDefault(p =>p.ProductId == 2);
+            var productToDelete = mockProducts.Object.All.FirstOrDefault(p => p.ProductId == 2);
             target.Delete(productToDelete.ProductId);
             // Assert - ensure that the repository delete method was
             // called with the correct Product
