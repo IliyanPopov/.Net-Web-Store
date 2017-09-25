@@ -1,28 +1,28 @@
 ﻿@model SportsStore.WebUI.ViewModels.CategoriesListViewModel
 @{
-    bool horizontal = ((bool) (ViewContext.RouteData.Values["horizontalLayout"] ?? false));
+    bool horizontal = ((bool)(ViewContext.RouteData.Values["horizontalLayout"] ?? false));
     string wrapperClasses = horizontal ? "btn-group btn-group-sm btn-group-justified" : null;
 }
 <div class="@wrapperClasses">
     @*this fucker doesn't work for some reason, the css gets fucked up*@
-    @*@Html.ActionLink("Home", "List", "Product",
+    @Html.ActionLink("Home", "List", "Product",
         new
         {
-            @class = horizontal ? "btn btn-default btn-sm" : "btn btn-block btn-default btn-lg"
-        }, null)*@
+            @class = (horizontal ? "btn btn-default btn-sm" : "btn btn-block btn-default btn-lg")
+        }, null)
     @foreach (var link in Model.Categories)
     {
         @Html.RouteLink(link, new
-        {
-            controller = "Product",
-            action = "List",
-            category = link,
-            page = 1
-        }, new
-        {
-            @class = (horizontal ? "btn btn-default btn-sm"
+   {
+       controller = "Product",
+       action = "List",
+       category = link,
+       page = 1
+   }, new
+   {
+       @class = (horizontal ? "btn btn-default btn-sm"
                 : "btn btn-block btn-default btn-lg")
                      + (link == Model.CurrentCategory ? " btn-primary" : "")
-        })
+   })
     }
 </div>
